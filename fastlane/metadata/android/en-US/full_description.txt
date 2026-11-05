@@ -1,0 +1,8 @@
+Magister Van Gister is an open-source Dutch utility app designed to let users archive, manage, and downgrade to legacy versions of the official Magister Android application using GitHub releases and Android's native PackageInstaller Session API.
+
+Key Features:
+- Direct connection to the EpicMemazGuy/magister-apk-archive-releases repository.
+- Native PackageInstaller Session support for both single APK and XAPK split packages without root or external installers.
+- SHA-256 integrity verification hashes for all archived release assets.
+- Device-wide Magister installation detection with downgrade conflict guidance.
+- 100% Free and Open Source Software (FOSS), GPL-3.0 licensed, zero proprietary dependencies.

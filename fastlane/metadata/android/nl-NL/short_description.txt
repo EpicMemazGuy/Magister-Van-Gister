@@ -1,0 +1,1 @@
+Downgrade Magister naar gearchiveerde legacy versies via GitHub.

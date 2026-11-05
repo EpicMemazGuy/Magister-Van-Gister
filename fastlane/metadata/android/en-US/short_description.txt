@@ -1,0 +1,1 @@
+Archive and downgrade Magister to legacy releases via GitHub.

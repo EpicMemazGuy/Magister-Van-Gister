@@ -1,0 +1,8 @@
+Magister Van Gister is een open-source Android hulpprogramma om legacy versies van de officiële Magister app te archiveren, beheren en herstellen via GitHub releases.
+
+Kenmerken:
+- Directe verbinding met de officiële EpicMemazGuy/magister-apk-archive-releases repository.
+- Ondersteuning voor zowel standalone .apk als .xapk split packages via Android's native PackageInstaller Session API.
+- SHA-256 integriteitscontrole voor alle gearchiveerde bestanden.
+- Toestel-brede detectie van geïnstalleerde Magister applicaties.
+- 100% Vrij en Open Source Software (FOSS), gelicenseerd onder GPL-3.0.

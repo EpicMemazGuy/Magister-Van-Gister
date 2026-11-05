@@ -1,0 +1,6 @@
+{
+  "summary": "Architectural and implementation plan for 'Magister Van Gister', an open-source F-Droid compliant Dutch utility for downgrading Magister Android app versions via GitHub releases and Android PackageInstaller Session API.",
+  "updatedAt": "2026-11-05T14:50:52.614763994Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

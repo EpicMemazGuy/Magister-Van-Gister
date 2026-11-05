@@ -1,0 +1,6 @@
+{
+  "name": "Magister Van Gister",
+  "description": "Open-source Dutch utility to archive, manage, and downgrade Magister to legacy versions via GitHub releases.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

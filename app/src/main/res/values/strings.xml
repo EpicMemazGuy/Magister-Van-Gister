@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Magister Van Gister</string>
+    <string name="app_subtitle">Downgrader &amp; Versiebeheer</string>
+    <string name="tab_versions">Versies</string>
+    <string name="tab_installed">Status</string>
+    <string name="tab_settings">Instellingen</string>
+    
+    <string name="title_available_versions">Gearchiveerde Versies</string>
+    <string name="subtitle_available_versions">Download en herstel eerdere Magister versies</string>
+    <string name="btn_download_install">Download &amp; Installeer</string>
+    <string name="btn_retry">Opnieuw Proberen</string>
+    <string name="btn_cancel">Annuleren</string>
+    <string name="btn_refresh">Vernieuwen</string>
+    
+    <string name="status_installed">Geïnstalleerd op dit apparaat</string>
+    <string name="status_not_installed">Magister niet gevonden op dit apparaat</string>
+    <string name="current_version">Huidige versie: %1$s (Build %2$d)</string>
+    
+    <string name="state_downloading">Pakket downloaden…</string>
+    <string name="state_extracting">XAPK splits uitpakken…</string>
+    <string name="state_installing">Installatie initialiseren…</string>
+    <string name="state_completed">Installatieverzoek verzonden naar Android</string>
+    <string name="state_error">Fout: %1$s</string>
+    
+    <string name="permission_install_title">Installatie Toestemming Vereist</string>
+    <string name="permission_install_desc">Magister Van Gister heeft toestemming nodig om onbekende apps te installeren om de gearchiveerde Magister APK te kunnen plaatsen.</string>
+    <string name="permission_install_btn">Toestemming Openen</string>
+
+    <string name="repo_settings_title">GitHub Opslagplaats</string>
+    <string name="repo_settings_desc">Stel de bron-repository in voor Magister releases</string>
+    <string name="repo_default_btn">Standaard Herstellen</string>
+    
+    <string name="license_title">Open Source Licentie</string>
+    <string name="license_type">GNU General Public License v3.0 (GPL-3.0)</string>
+</resources>
