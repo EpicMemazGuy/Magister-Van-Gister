@@ -1,10 +1,14 @@
 package com.example
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -19,6 +23,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -28,10 +33,15 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.DeleteForever
+import androidx.compose.material.icons.filled.DownloadForOffline
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Layers
 import androidx.compose.material.icons.filled.PhoneAndroid
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Terminal
+import androidx.compose.material.icons.filled.WarningAmber
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -40,6 +50,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -49,15 +60,20 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.ui.AppTab
-import com.example.ui.MainUiState
+import com.example.ui.DowngradePromptData
 import com.example.ui.MainViewModel
+import com.example.ui.components.M3PrimaryButton
 import com.example.ui.components.M3TopHeader
+import com.example.ui.screens.ConsoleScreen
 import com.example.ui.screens.InstalledStatusScreen
+import com.example.ui.screens.ManualXapkScreen
 import com.example.ui.screens.SettingsScreen
 import com.example.ui.screens.VersionListScreen
 import com.example.ui.theme.MagisterVanGisterTheme
+import com.example.ui.theme.StatusWarning
 
 class MainActivity : ComponentActivity() {
 
@@ -71,13 +87,50 @@ class MainActivity : ComponentActivity() {
             MagisterVanGisterTheme {
                 val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
+                val uninstallLauncher = rememberLauncherForActivityResult(
+                    contract = ActivityResultContracts.StartActivityForResult()
+                ) { _ ->
+                    viewModel.onUninstallReturned()
+                }
+
                 LaunchedEffect(Unit) {
                     viewModel.checkInstallPermission()
                     viewModel.checkInstalledMagister()
                 }
 
+                LaunchedEffect(Unit) {
+                    viewModel.launchUninstallEvent.collect { pkg ->
+                        val intent = Intent(Intent.ACTION_DELETE).apply {
+                            data = Uri.parse("package:$pkg")
+                            putExtra(Intent.EXTRA_RETURN_RESULT, true)
+                        }
+                        try {
+                            uninstallLauncher.launch(intent)
+                        } catch (e: Exception) {
+                            val fallbackIntent = Intent(Intent.ACTION_UNINSTALL_PACKAGE).apply {
+                                data = Uri.parse("package:$pkg")
+                                putExtra(Intent.EXTRA_RETURN_RESULT, true)
+                            }
+                            try {
+                                uninstallLauncher.launch(fallbackIntent)
+                            } catch (e2: Exception) {
+                                // Ignore
+                            }
+                        }
+                    }
+                }
+
                 BackHandler(enabled = uiState.activeTab != AppTab.VERSIONS) {
                     viewModel.setTab(AppTab.VERSIONS)
+                }
+
+                // Downgrade uninstall confirmation popup dialog with password warning
+                uiState.downgradePrompt?.let { prompt ->
+                    DowngradeUninstallDialog(
+                        prompt = prompt,
+                        onConfirm = { viewModel.confirmUninstallAndReinstall() },
+                        onDismiss = { viewModel.dismissDowngradePrompt() }
+                    )
                 }
 
                 Scaffold(
@@ -127,11 +180,27 @@ class MainActivity : ComponentActivity() {
                             )
 
                             NavigationBarItem(
+                                selected = uiState.activeTab == AppTab.MANUAL,
+                                onClick = { viewModel.setTab(AppTab.MANUAL) },
+                                icon = { Icon(Icons.Default.DownloadForOffline, contentDescription = null) },
+                                label = { Text(stringResource(R.string.tab_manual)) },
+                                modifier = Modifier.testTag("nav_tab_manual")
+                            )
+
+                            NavigationBarItem(
                                 selected = uiState.activeTab == AppTab.STATUS,
                                 onClick = { viewModel.setTab(AppTab.STATUS) },
                                 icon = { Icon(Icons.Default.PhoneAndroid, contentDescription = null) },
                                 label = { Text(stringResource(R.string.tab_installed)) },
                                 modifier = Modifier.testTag("nav_tab_status")
+                            )
+
+                            NavigationBarItem(
+                                selected = uiState.activeTab == AppTab.CONSOLE,
+                                onClick = { viewModel.setTab(AppTab.CONSOLE) },
+                                icon = { Icon(Icons.Default.Terminal, contentDescription = null) },
+                                label = { Text(stringResource(R.string.tab_console)) },
+                                modifier = Modifier.testTag("nav_tab_console")
                             )
 
                             NavigationBarItem(
@@ -154,11 +223,16 @@ class MainActivity : ComponentActivity() {
                             AppTab.VERSIONS -> {
                                 VersionListScreen(
                                     state = uiState,
-                                    onSearchChange = { viewModel.onSearchQueryChanged(it) },
-                                    onEraSelected = { viewModel.onEraFilterSelected(it) },
-                                    onDownloadInstall = { viewModel.downloadAndInstall(it) },
+                                    onDownloadInstall = { viewModel.requestDownloadAndInstall(it) },
                                     onResetDownload = { viewModel.resetDownloadState() },
                                     onNavigateToStatus = { viewModel.setTab(AppTab.STATUS) }
+                                )
+                            }
+
+                            AppTab.MANUAL -> {
+                                ManualXapkScreen(
+                                    state = uiState,
+                                    onDownloadToPublic = { viewModel.downloadToPublicDownloads(it) }
                                 )
                             }
 
@@ -169,6 +243,13 @@ class MainActivity : ComponentActivity() {
                                     onCustomPackageChange = { viewModel.onCustomPackageInputChanged(it) },
                                     onTestCustomPackage = { viewModel.testCustomPackageCheck() },
                                     onNavigateToVersions = { viewModel.setTab(AppTab.VERSIONS) }
+                                )
+                            }
+
+                            AppTab.CONSOLE -> {
+                                ConsoleScreen(
+                                    state = uiState,
+                                    onClearLogs = { viewModel.clearConsoleLogs() }
                                 )
                             }
 
@@ -243,4 +324,137 @@ private fun M3NotificationBanner(
             }
         }
     }
+}
+
+@Composable
+private fun DowngradeUninstallDialog(
+    prompt: DowngradePromptData,
+    onConfirm: () -> Unit,
+    onDismiss: () -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        icon = {
+            Icon(
+                imageVector = Icons.Default.WarningAmber,
+                contentDescription = null,
+                tint = StatusWarning,
+                modifier = Modifier.size(32.dp)
+            )
+        },
+        title = {
+            Text(
+                text = stringResource(R.string.downgrade_dialog_title),
+                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+            )
+        },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                val description = if (prompt.isFromConflictError) {
+                    stringResource(
+                        R.string.downgrade_dialog_conflict_desc,
+                        prompt.targetRelease.versionName
+                    )
+                } else {
+                    stringResource(
+                        R.string.downgrade_dialog_desc,
+                        prompt.installedVersionName,
+                        prompt.targetRelease.versionName
+                    )
+                }
+
+                Text(
+                    text = description,
+                    style = MaterialTheme.typography.bodyMedium.copy(
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        lineHeight = 20.sp
+                    )
+                )
+
+                // Password / Login Warning Banner
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = MaterialTheme.colorScheme.errorContainer,
+                    border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.error),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(10.dp)) {
+                        Text(
+                            text = stringResource(R.string.warning_login_title),
+                            style = MaterialTheme.typography.labelMedium.copy(
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onErrorContainer
+                            )
+                        )
+                        Spacer(modifier = Modifier.height(2.dp))
+                        Text(
+                            text = stringResource(R.string.warning_login_desc),
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                color = MaterialTheme.colorScheme.onErrorContainer,
+                                fontSize = 11.5.sp,
+                                lineHeight = 16.sp
+                            )
+                        )
+                    }
+                }
+
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Column(modifier = Modifier.padding(10.dp)) {
+                        Text(
+                            text = "Doelversie: ${prompt.targetRelease.assetName}",
+                            style = MaterialTheme.typography.labelSmall.copy(
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        )
+                        Text(
+                            text = "Geïnstalleerd pakket: ${prompt.installedPackageName}",
+                            style = MaterialTheme.typography.labelSmall.copy(
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        )
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(6.dp)
+            ) {
+                M3PrimaryButton(
+                    text = stringResource(R.string.downgrade_dialog_btn_uninstall_install),
+                    onClick = onConfirm,
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Default.DeleteForever,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    testTag = "confirm_uninstall_button"
+                )
+
+                TextButton(
+                    onClick = onDismiss,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .testTag("cancel_uninstall_button")
+                ) {
+                    Text(
+                        text = stringResource(R.string.btn_cancel),
+                        style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    )
+                }
+            }
+        },
+        dismissButton = null,
+        shape = RoundedCornerShape(20.dp),
+        containerColor = MaterialTheme.colorScheme.surfaceContainerHighest
+    )
 }

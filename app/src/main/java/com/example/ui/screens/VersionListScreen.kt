@@ -19,36 +19,25 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.Error
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Layers
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.FilterChip
-import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.R
 import com.example.model.DownloadState
 import com.example.model.MagisterRelease
 import com.example.ui.MainUiState
@@ -56,7 +45,6 @@ import com.example.ui.components.M3Badge
 import com.example.ui.components.M3Card
 import com.example.ui.components.M3PrimaryButton
 import com.example.ui.components.M3ProgressSection
-import com.example.ui.components.M3TonalButton
 import com.example.ui.theme.StatusError
 import com.example.ui.theme.StatusSuccess
 import com.example.ui.theme.StatusWarning
@@ -64,8 +52,6 @@ import com.example.ui.theme.StatusWarning
 @Composable
 fun VersionListScreen(
     state: MainUiState,
-    onSearchChange: (String) -> Unit,
-    onEraSelected: (String) -> Unit,
     onDownloadInstall: (MagisterRelease) -> Unit,
     onResetDownload: () -> Unit,
     onNavigateToStatus: () -> Unit,
@@ -82,65 +68,23 @@ fun VersionListScreen(
             onBannerClick = onNavigateToStatus
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
-        // Search Bar (Material 3 OutlinedTextField)
-        OutlinedTextField(
-            value = state.searchQuery,
-            onValueChange = onSearchChange,
-            placeholder = { Text("Zoek release (bijv. 2.9.2, 2.7.5, apk, xapk)…") },
-            leadingIcon = {
-                Icon(
-                    imageVector = Icons.Default.Search,
-                    contentDescription = "Zoeken",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            },
-            trailingIcon = {
-                if (state.searchQuery.isNotEmpty()) {
-                    IconButton(onClick = { onSearchChange("") }) {
-                        Icon(
-                            imageVector = Icons.Default.Close,
-                            contentDescription = "Wissen"
-                        )
-                    }
-                }
-            },
-            singleLine = true,
-            modifier = Modifier
-                .fillMaxWidth()
-                .testTag("search_input"),
-            shape = RoundedCornerShape(12.dp)
+        // Title Header
+        Text(
+            text = stringResource(R.string.title_available_versions),
+            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+            color = MaterialTheme.colorScheme.onBackground
+        )
+        Text(
+            text = stringResource(R.string.subtitle_available_versions),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
-
-        // Material 3 Filter Chips (strictly matching the repository: All, XAPK, APK)
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            val filters = listOf(
-                "ALL" to "Alle repo bestanden (${state.releases.size})",
-                "XAPK" to "XAPK bundels",
-                "APK" to "Standalone APK"
-            )
-
-            filters.forEach { (key, label) ->
-                val isSelected = state.selectedEra == key
-                FilterChip(
-                    selected = isSelected,
-                    onClick = { onEraSelected(key) },
-                    label = { Text(text = label, fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal) },
-                    shape = RoundedCornerShape(10.dp)
-                )
-            }
-        }
-
         Spacer(modifier = Modifier.height(12.dp))
 
-        // Releases List or Empty State
+        // Releases List (ONLY 2.7.5 & 2.7.0)
         if (state.isLoading) {
             Box(
                 modifier = Modifier
@@ -152,33 +96,22 @@ fun VersionListScreen(
                     CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
                     Spacer(modifier = Modifier.height(12.dp))
                     Text(
-                        text = "Repository bestanden laden…",
+                        text = stringResource(R.string.state_downloading),
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }
             }
-        } else if (state.filteredReleases.isEmpty()) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "Geen releases gevonden voor deze zoekopdracht.",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
         } else {
+            val versionsToShow = if (state.mainVersions.isNotEmpty()) state.mainVersions else state.releases.filter { it.versionName == "2.7.5" || it.versionName == "2.7.0" }
+
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f),
                 contentPadding = PaddingValues(bottom = 24.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                items(state.filteredReleases, key = { it.id }) { release ->
+                items(versionsToShow, key = { it.id }) { release ->
                     M3ReleaseCard(
                         release = release,
                         downloadState = state.downloadState,
@@ -230,17 +163,17 @@ private fun InstalledStatusM3Banner(
                 Column {
                     Text(
                         text = if (isInstalled) {
-                            "Geïnstalleerd: ${state.installedAppInfo.appLabel}"
+                            "${stringResource(R.string.status_installed)}: ${state.installedAppInfo.appLabel}"
                         } else {
-                            "Magister Niet Geïnstalleerd"
+                            stringResource(R.string.status_not_installed)
                         },
                         style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold)
                     )
                     Text(
                         text = if (isInstalled) {
-                            "Versie ${state.installedAppInfo.versionName} (Build ${state.installedAppInfo.versionCode})"
+                            stringResource(R.string.current_version, state.installedAppInfo.versionName, state.installedAppInfo.versionCode)
                         } else {
-                            "Kies een versie uit de repository om te installeren"
+                            stringResource(R.string.subtitle_available_versions)
                         },
                         style = MaterialTheme.typography.bodySmall.copy(
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -249,14 +182,6 @@ private fun InstalledStatusM3Banner(
                     )
                 }
             }
-
-            Text(
-                text = "Details",
-                style = MaterialTheme.typography.labelMedium.copy(
-                    color = MaterialTheme.colorScheme.primary,
-                    fontWeight = FontWeight.Bold
-                )
-            )
         }
     }
 }
@@ -277,7 +202,10 @@ private fun M3ReleaseCard(
         else -> false
     }
 
-    M3Card {
+    val is270 = release.versionName == "2.7.0"
+    val is275 = release.versionName == "2.7.5"
+
+    M3Card(isRecommended = is275) {
         Column(modifier = Modifier.fillMaxWidth()) {
             // Header Row: Asset Name and Format Badge
             Row(
@@ -285,22 +213,82 @@ private fun M3ReleaseCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = release.assetName,
-                        style = MaterialTheme.typography.titleMedium.copy(
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
+                Text(
+                    text = "Magister v${release.versionName} (${release.assetName})",
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
                     )
-                }
+                )
 
-                M3Badge(text = if (release.isXapk) "XAPK" else "APK")
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    if (is275) {
+                        M3Badge(text = "⭐ Aanbevolen", isRecommended = true)
+                    }
+                    M3Badge(text = if (release.isXapk) "XAPK" else "APK")
+                }
             }
 
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
-            // Metadata: Size & SHA-256 Checksum preview
+            // Warning or Recommendation Banner
+            if (is270) {
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.85f),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.error),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Warning,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onErrorContainer,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = stringResource(R.string.version_270_warning),
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                color = MaterialTheme.colorScheme.onErrorContainer,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 12.sp
+                            )
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+            } else if (is275) {
+                Surface(
+                    shape = RoundedCornerShape(8.dp),
+                    color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.6f),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.6f)),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = stringResource(R.string.version_275_recommended),
+                            style = MaterialTheme.typography.bodySmall.copy(
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 12.sp
+                            )
+                        )
+                    }
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+
+            // Metadata: Size
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -324,7 +312,7 @@ private fun M3ReleaseCard(
                         )
                         Spacer(modifier = Modifier.width(4.dp))
                         Text(
-                            text = "sha256: ${release.sha256}",
+                            text = "sha256: ${release.sha256.take(16)}…",
                             style = MaterialTheme.typography.bodySmall.copy(
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 fontFamily = FontFamily.Monospace,
@@ -334,16 +322,6 @@ private fun M3ReleaseCard(
                     }
                 }
             }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Factual repository description
-            Text(
-                text = release.description,
-                style = MaterialTheme.typography.bodySmall.copy(
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            )
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -425,7 +403,7 @@ private fun M3ReleaseCard(
                             }
                             Spacer(modifier = Modifier.height(8.dp))
                             M3PrimaryButton(
-                                text = "Opnieuw Proberen",
+                                text = stringResource(R.string.btn_retry),
                                 onClick = onDownloadInstall,
                                 testTag = "retry_button_${release.id}"
                             )
@@ -436,7 +414,7 @@ private fun M3ReleaseCard(
                 }
             } else {
                 M3PrimaryButton(
-                    text = "Downloaden & Installeren",
+                    text = stringResource(R.string.btn_download_install),
                     onClick = onDownloadInstall,
                     leadingIcon = {
                         Icon(

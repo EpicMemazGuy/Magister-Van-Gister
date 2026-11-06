@@ -1,0 +1,680 @@
+17:29:13.047
+System
+Build
+ Render Start 
+17:29:13.047
+System
+Log
+ Build successful and cleared previous logs 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:02.737 10047 I/gistervangister: Using CollectorTypeCMC GC. 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:02.764 10047 D/nativeloader: Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:02.857 10047 W/ziparchive: Unable to open '/data/app/~~hwAJKT9T71EZaASGBkxxaA==/com.epicmemazguy.magistervangister-eOujBrAYq_zC43jW_0vDyA==/base.dm': No such file or directory
+Unable to open '/data/app/~~hwAJKT9T71EZaASGBkxxaA==/com.epicmemazguy.magistervangister-eOujBrAYq_zC43jW_0vDyA==/base.dm': No such file or directory 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:03.505 10047 D/nativeloader: Configuring clns-7 for other apk /data/app/~~hwAJKT9T71EZaASGBkxxaA==/com.epicmemazguy.magistervangister-eOujBrAYq_zC43jW_0vDyA==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~hwAJKT9T71EZaASGBkxxaA==/com.epicmemazguy.magistervangister-eOujBrAYq_zC43jW_0vDyA==/lib/arm64:/data/app/~~hwAJKT9T71EZaASGBkxxaA==/com.epicmemazguy.magistervangister-eOujBrAYq_zC43jW_0vDyA==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.epicmemazguy.magistervangister 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:03.521 10047 V/GraphicsEnvironment: Currently set values for: 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:03.522 10047 V/GraphicsEnvironment: angle_gl_driver_selection_pkgs=[]
+angle_gl_driver_selection_values=[]
+Global.Settings values are invalid: number of packages: 0, number of values: 0
+Neither updatable production driver nor prerelease driver is supported. 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:03.798 10047 D/ReleaseRepository: Fetching releases from GitHub API: EpicMemazGuy/magister-apk-archive-releases 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:03.807 10047 W/HWUI    : Unknown dataspace 0 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:03.816 10047 I/okhttp.OkHttpClient: --> GET https://api.github.com/repos/EpicMemazGuy/magister-apk-archive-releases/releases 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:03.875 10047 D/TrafficStats: tagSocket(114) with statsTag=0xffffffff, statsUid=-1 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:04.216 10047 I/okhttp.OkHttpClient: <-- 200 https://api.github.com/repos/EpicMemazGuy/magister-apk-archive-releases/releases (399ms, unknown-length body) 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:04.258 10047 I/ReleaseRepository: Successfully loaded 6 assets from GitHub releases 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:04.321 10047 I/gistervangister: Compiler allocated 5250KB to compile void android.view.ViewRootImpl.performTraversals() 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:04.610 10047 I/EGL_emulation: Opening libGLESv1_CM_emulation.so 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:04.611 10047 I/EGL_emulation: Opening libGLESv2_emulation.so 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:04.624 10047 W/HWUI    : Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without... 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:04.626 10047 W/HWUI    : Failed to initialize 101010-2 format, error = EGL_SUCCESS 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:04.687 10047 I/Gralloc4: mapper 4.x is not supported 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:04.838 10047 I/Choreographer: Skipped 58 frames!  The application may be doing too much work on its main thread. 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:04.847 10047 I/HWUI    : Davey! duration=1013ms; Flags=1, FrameTimelineVsyncId=198909, IntendedVsync=2154794353287, Vsync=2154794353287, InputEventId=0, HandleInputStart=2154799487317, AnimationStart=2154799487900, PerformTraversalsStart=2154799488358, DrawStart=2155680789525, FrameDeadline=2154811019953, FrameInterval=2154799482983, FrameStartTime=16666666, SyncQueued=2155718865859, SyncStart=2155722426692, IssueDrawCommandsStart=2155723687234, SwapBuffers=2155795806692, FrameCompleted=2155811351525, DequeueBufferDuration=2917, QueueBufferDuration=379209, GpuCompleted=2155811351525, SwapBuffersCompleted=2155801273317, DisplayPresentTime=0, CommandSubmissionCompleted=2155795806692,  
+17:29:29.084
+Android
+Log
+ 11-05 16:29:04.953 10047 I/HWUI    : Davey! duration=1061ms; Flags=0, FrameTimelineVsyncId=198932, IntendedVsync=2154844353285, Vsync=2155811019913, InputEventId=0, HandleInputStart=2155822534150, AnimationStart=2155822535192, PerformTraversalsStart=2155867914150, DrawStart=2155867968025, FrameDeadline=2155844353245, FrameInterval=2155822341150, FrameStartTime=16666666, SyncQueued=2155869940317, SyncStart=2155876193275, IssueDrawCommandsStart=2155876271400, SwapBuffers=2155877357400, FrameCompleted=2155912434026, DequeueBufferDuration=2250, QueueBufferDuration=142750, GpuCompleted=2155912434026, SwapBuffersCompleted=2155879128150, DisplayPresentTime=0, CommandSubmissionCompleted=2155877357400,  
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:09.451 10047 D/ProfileInstaller: Installing profile for com.epicmemazguy.magistervangister 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.747 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/YouTube/YouTube.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationCorner/DisplayCutoutEmulationCornerOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.extservices/priv-app/GoogleExtServices@350820300/GoogleExtServices.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationDouble/DisplayCutoutEmulationDoubleOverlay.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.748 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/TelephonyProvider/TelephonyProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/TelephonyProvider__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DynamicSystemInstallationService/DynamicSystemInstallationService.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/Velvet/Velvet.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/CalendarProvider/CalendarProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/GoogleOneTimeInitializer/GoogleOneTimeInitializer.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.750 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/GoogleExtShared/GoogleExtShared.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~gubathozUWT6hWv1nsaWNA==/com.google.android.apps.mtaas.deviceadmin-iy4Bt4xMh4joPJ1JBcLe3w==/base.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/ExternalStorageProvider/ExternalStorageProvider.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.751 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/HTMLViewer/HTMLViewer.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/CompanionDeviceManager/CompanionDeviceManager.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DownloadProvider/DownloadProvider.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.752 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/PrebuiltBugle/PrebuiltBugle.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.753 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/SoundPickerPrebuilt/SoundPickerPrebuilt.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.755 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.mediaprovider/priv-app/MediaProviderGoogle@350820300/MediaProviderGoogle.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.756 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/SafetyHubPrebuilt/SafetyHubPrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DownloadProviderUi/DownloadProviderUi.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.wifi/app/OsuLoginGoogle@350820300/OsuLoginGoogle.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.757 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/PacProcessor/PacProcessor.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/SimAppDialog/SimAppDialog.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/SimAppDialog__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.adservices/priv-app/AdServicesApkGoogle@350820260/AdServicesApkGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationHole/DisplayCutoutEmulationHoleOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationTall/DisplayCutoutEmulationTallOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/CertInstaller/CertInstaller.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/talkback/talkback.apk' with 1 weak references 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:13.757 10047 D/EGL_emulation: app_time_stats: avg=732.66ms min=9.79ms max=8146.84ms count=12 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.757 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '/vendor/overlay/EmulatorTalkBackOverlay/EmulatorTalkBackOverlay.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.760 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/NavigationBarMode3Button/NavigationBarMode3ButtonOverlay.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.761 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/framework/framework-res.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.763 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/Camera2/Camera2.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/EasterEgg/EasterEgg.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/MtpService/MtpService.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.nfcservices/priv-app/NfcNciApexGoogle@AE3A.240806.043/NfcNciApexGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/Stk/Stk.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/PrebuiltDeskClockGoogle/PrebuiltDeskClockGoogle.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.764 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/NavigationBarMode2Button/NavigationBarMode2ButtonOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/DevicePersonalizationPrebuiltPixel2021-aiai_20240329.00_RC16/DevicePersonalizationPrebuiltPixel2021-aiai_20240329.00_RC16.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.767 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/PrebuiltGmail/PrebuiltGmail.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.769 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.permission/priv-app/GooglePermissionController@350820360/GooglePermissionController.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.772 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '/product/overlay/GooglePermissionControllerOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.btservices/app/BluetoothGoogle@342010060/BluetoothGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/SettingsProvider/SettingsProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/LargeScreenSettingsProviderOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/SettingsProvider__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/PrintSpooler/PrintSpooler.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~BtnNgmILWp6pu-MeK0wU5A==/com.google.android.apps.mtaas.tools-nfldZ2hj4P2ebsy66bqN2g==/base.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/BasicDreams/BasicDreams.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.774 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/DeviceIntelligenceNetworkPrebuilt-astrea_20240329.00_RC02/DeviceIntelligenceNetworkPrebuilt-astrea_20240329.00_RC02.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/InputDevices/InputDevices.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.775 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/WellbeingPrebuilt/WellbeingPrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.devicelock/priv-app/DeviceLockControllerGoogle@AE3A.240806.043/DeviceLockControllerGoogle.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.776 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/GoogleDialer/GoogleDialer.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.778 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/BuiltInPrintService/BuiltInPrintService.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.783 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '/product/overlay/BuiltInPrintService__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.784 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/CaptivePortalLoginGoogle/CaptivePortalLoginGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/MusicFX/MusicFX.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/Drive/Drive.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/Maps/Maps.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/ModuleMetadataGoogle/ModuleMetadataGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationEmu01/DisplayCutoutEmulationEmu01Overlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/AvatarPickerGoogle/AvatarPickerGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/MarkupGoogle_v2/MarkupGoogle_v2.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/NetworkStackGoogle/NetworkStackGoogle.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.785 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.rkpd/priv-app/rkpdapp.google@350820300/rkpdapp.google.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/GoogleContacts/GoogleContacts.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/Telecom/Telecom.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/Telecom__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/KeyChain/KeyChain.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~2vOWZ25qWOgUSHaS06kdgA==/com.android.chrome-gy9DiooBFZe9RgFT-39K2A==/Chrome.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~Gugm69O5JQ-udqt98jkj9Q==/com.google.android.trichromelibrary_636771932-JAgEq9wLhkG1YfBrJNdB8Q==/TrichromeLibrary.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/GooglePackageInstaller/GooglePackageInstaller.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/PixelThemesStub/PixelThemesStub.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~px8-pdKKeU91B5kVfZv5iQ==/com.google.android.gms-3R9qBqxuv4a2Q30IolVsHQ==/base.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/GoogleServicesFramework/GoogleServicesFramework.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/TagGoogle/TagGoogle.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.786 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/GoogleTTS/GoogleTTS.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/CallLogBackup/CallLogBackup.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/PartnerSetupPrebuilt/PartnerSetupPrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/CameraExtensionsProxy/CameraExtensionsProxy.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/NexusWallpapersStubPrebuilt2018/NexusWallpapersStubPrebuilt2018.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/NexusLauncherRelease/NexusLauncherRelease.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/CarrierDefaultApp/CarrierDefaultApp.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/CredentialManager/CredentialManager.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/FontNotoSerifSource/FontNotoSerifSourceOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DeviceAsWebcam/DeviceAsWebcam.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/ProxyHandler/ProxyHandler.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.permission/priv-app/GoogleSafetyCenterResources@350820360/GoogleSafetyCenterResources.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationWaterfall/DisplayCutoutEmulationWaterfallOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/IntentResolver/IntentResolver.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/TransparentNavigationBar/TransparentNavigationBarOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/E2eeContactKeysProvider/E2eeContactKeysProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.tethering/priv-app/ServiceConnectivityResourcesGoogle@350820300/ServiceConnectivityResourcesGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/vendor/overlay/goldfish_overlay_connectivity_google.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/GoogleFeedback/GoogleFeedback.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/Photos/Photos.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.787 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/CalendarGooglePrebuilt/CalendarGooglePrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/ManagedProvisioning/ManagedProvisioning.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/SoundPicker/SoundPicker.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/PrebuiltGoogleTelemetryTvp/PrebuiltGoogleTelemetryTvp.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/MultiDisplayProvider/MultiDisplayProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DeviceDiagnostics/DeviceDiagnostics.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.788 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '/product/overlay/DeviceDiagnostics__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/NotesRoleEnabled/NotesRoleEnabledOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/LiveWallpapersPicker/LiveWallpapersPicker.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/PrebuiltGoogleAdservicesTvp/PrebuiltGoogleAdservicesTvp.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.healthfitness/priv-app/HealthConnectControllerGoogle@350820300/HealthConnectControllerGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/KidsSupervisionStub/KidsSupervisionStub.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/StorageManager/StorageManager.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.789 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '/product/overlay/StorageManager__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/BookmarkProvider/BookmarkProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/SettingsGoogle/SettingsGoogle.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.790 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '/product/overlay/SettingsGoogle__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/SettingsIntelligenceGooglePrebuilt/SettingsIntelligenceGooglePrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.uwb/priv-app/ServiceUwbResourcesGoogle@350820300/ServiceUwbResourcesGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.wifi/priv-app/ServiceWifiResourcesGoogle@350820300/ServiceWifiResourcesGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/ThemePicker/ThemePicker.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/OdadPrebuilt/OdadPrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/TeleService/TeleService.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.791 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '/vendor/overlay/TeleService__sdk_gphone64_arm64__auto_generated_rro_vendor.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/TeleService__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/Shell/Shell.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/BlockedNumberProvider/BlockedNumberProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/UserDictionaryProvider/UserDictionaryProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/app/EmergencyInfoGoogleNoUi/EmergencyInfoGoogleNoUi.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/FusedLocation/FusedLocation.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/vendor/overlay/SystemUIGoogle__sdk_gphone64_arm64__auto_generated_rro_vendor.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/SystemUIGoogle__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/YouTubeMusicPrebuilt/YouTubeMusicPrebuilt.apk' with 1 weak references 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:13.792 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/BluetoothMidiService/BluetoothMidiService.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/Traceur/Traceur.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.cellbroadcast/priv-app/GoogleCellBroadcastApp@350820300/GoogleCellBroadcastApp.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/ContactsProvider/ContactsProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/ContactsProvider__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/LatinIMEGooglePrebuilt/LatinIMEGooglePrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/GoogleRestorePrebuilt-v526684/GoogleRestorePrebuilt-v526684.apk' with 1 weak references 
+17:29:29.084
+Android
+Log
+ 11-05 16:29:13.954 10047 I/gistervangister: Compiler allocated 7430KB to compile kotlin.Unit com.example.ui.screens.VersionListScreenKt.M3ReleaseCard$lambda$36(com.example.model.MagisterRelease, boolean, com.example.model.DownloadState, kotlin.jvm.functions.Function0, androidx.compose.runtime.Composer, int) 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:14.767 10047 D/EGL_emulation: app_time_stats: avg=41.13ms min=3.27ms max=501.52ms count=19 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:15.795 10047 D/EGL_emulation: app_time_stats: avg=36.42ms min=2.59ms max=251.74ms count=21 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:16.813 10047 D/EGL_emulation: app_time_stats: avg=92.28ms min=10.75ms max=751.34ms count=10 
+17:29:29.084
+Android
+Warning
+ 11-05 16:29:21.305 10047 W/WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=androidx.activity.OnBackPressedDispatcher$Api34Impl$createOnBackAnimationCallback$1@ef23385 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:21.373 10047 D/HWUI    : endAllActiveAnimators on 0xb4000071bcf4e730 (UnprojectedRipple) with handle 0xb4000070ecf73070 
+17:29:29.084
+Android
+Debug
+ 11-05 16:29:21.428 10047 D/EGL_emulation: app_time_stats: avg=192.95ms min=9.51ms max=3848.55ms count=22 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:26.807 10047 D/EGL_emulation: app_time_stats: avg=1335.96ms min=24.61ms max=5238.45ms count=4 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.665 10047 D/XapkInstaller: Gevonden APK splits in XAPK (Package: nl.schoolmaster.magister.mobile): nl.schoolmaster.magister.mobile.apk (4122 KB), config.arm64_v8a.apk (87159 KB), config.xhdpi.apk (662 KB), config.en.apk (48 KB), config.zh.apk (36 KB), config.fr.apk (32 KB), config.es.apk (32 KB), config.pt.apk (32 KB), config.th.apk (28 KB), config.hi.apk (28 KB), config.my.apk (28 KB), config.ar.apk (28 KB), config.ru.apk (28 KB), config.in.apk (24 KB), config.ja.apk (24 KB), config.vi.apk (24 KB), config.ko.apk (24 KB), config.tr.apk (24 KB), config.it.apk (24 KB), config.de.apk (24 KB) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.676 10047 D/XapkInstaller: Streaming base.apk (from nl.schoolmaster.magister.mobile.apk) into session (size: 4221918 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.707 10047 D/XapkInstaller: Streaming split_config_1_config_arm64_v8a.apk (from config.arm64_v8a.apk) into session (size: 89251699 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.810 10047 D/EGL_emulation: app_time_stats: avg=52.54ms min=3.79ms max=204.17ms count=17 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.947 10047 D/XapkInstaller: Streaming split_config_2_config_xhdpi.apk (from config.xhdpi.apk) into session (size: 678745 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.954 10047 D/XapkInstaller: Streaming split_config_3_config_en.apk (from config.en.apk) into session (size: 49561 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.959 10047 D/XapkInstaller: Streaming split_config_4_config_zh.apk (from config.zh.apk) into session (size: 37273 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.965 10047 D/XapkInstaller: Streaming split_config_5_config_fr.apk (from config.fr.apk) into session (size: 33177 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.972 10047 D/XapkInstaller: Streaming split_config_6_config_es.apk (from config.es.apk) into session (size: 33177 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.982 10047 D/XapkInstaller: Streaming split_config_7_config_pt.apk (from config.pt.apk) into session (size: 33177 bytes) 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:27.989 10047 W/gistervangister: Cleared Reference was only reachable from finalizer (only reported once) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:27.993 10047 D/XapkInstaller: Streaming split_config_8_config_th.apk (from config.th.apk) into session (size: 29081 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.004 10047 D/XapkInstaller: Streaming split_config_9_config_hi.apk (from config.hi.apk) into session (size: 29081 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.023 10047 D/XapkInstaller: Streaming split_config_10_config_my.apk (from config.my.apk) into session (size: 29081 bytes) 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.031 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/YouTube/YouTube.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationCorner/DisplayCutoutEmulationCornerOverlay.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.032 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.extservices/priv-app/GoogleExtServices@350820300/GoogleExtServices.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationDouble/DisplayCutoutEmulationDoubleOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/TelephonyProvider/TelephonyProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/TelephonyProvider__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DynamicSystemInstallationService/DynamicSystemInstallationService.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/Velvet/Velvet.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/CalendarProvider/CalendarProvider.apk' with 1 weak references 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.039 10047 D/XapkInstaller: Streaming split_config_11_config_ar.apk (from config.ar.apk) into session (size: 29081 bytes) 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.043 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/GoogleOneTimeInitializer/GoogleOneTimeInitializer.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/GoogleExtShared/GoogleExtShared.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~gubathozUWT6hWv1nsaWNA==/com.google.android.apps.mtaas.deviceadmin-iy4Bt4xMh4joPJ1JBcLe3w==/base.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/ExternalStorageProvider/ExternalStorageProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/HTMLViewer/HTMLViewer.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/CompanionDeviceManager/CompanionDeviceManager.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DownloadProvider/DownloadProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/PrebuiltBugle/PrebuiltBugle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/SoundPickerPrebuilt/SoundPickerPrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.mediaprovider/priv-app/MediaProviderGoogle@350820300/MediaProviderGoogle.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.044 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/SafetyHubPrebuilt/SafetyHubPrebuilt.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.045 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DownloadProviderUi/DownloadProviderUi.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.wifi/app/OsuLoginGoogle@350820300/OsuLoginGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/PacProcessor/PacProcessor.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/SimAppDialog/SimAppDialog.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/SimAppDialog__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.adservices/priv-app/AdServicesApkGoogle@350820260/AdServicesApkGoogle.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.049 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationHole/DisplayCutoutEmulationHoleOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationTall/DisplayCutoutEmulationTallOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/CertInstaller/CertInstaller.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/talkback/talkback.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/vendor/overlay/EmulatorTalkBackOverlay/EmulatorTalkBackOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/NavigationBarMode3Button/NavigationBarMode3ButtonOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/Camera2/Camera2.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/EasterEgg/EasterEgg.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/MtpService/MtpService.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.nfcservices/priv-app/NfcNciApexGoogle@AE3A.240806.043/NfcNciApexGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/Stk/Stk.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/PrebuiltDeskClockGoogle/PrebuiltDeskClockGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/NavigationBarMode2Button/NavigationBarMode2ButtonOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/DevicePersonalizationPrebuiltPixel2021-aiai_20240329.00_RC16/DevicePersonalizationPrebuiltPixel2021-aiai_20240329.00_RC16.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.050 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/PrebuiltGmail/PrebuiltGmail.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.permission/priv-app/GooglePermissionController@350820360/GooglePermissionController.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/GooglePermissionControllerOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.btservices/app/BluetoothGoogle@342010060/BluetoothGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/SettingsProvider/SettingsProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/LargeScreenSettingsProviderOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/SettingsProvider__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/PrintSpooler/PrintSpooler.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~BtnNgmILWp6pu-MeK0wU5A==/com.google.android.apps.mtaas.tools-nfldZ2hj4P2ebsy66bqN2g==/base.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/BasicDreams/BasicDreams.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/DeviceIntelligenceNetworkPrebuilt-astrea_20240329.00_RC02/DeviceIntelligenceNetworkPrebuilt-astrea_20240329.00_RC02.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/InputDevices/InputDevices.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/WellbeingPrebuilt/WellbeingPrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.devicelock/priv-app/DeviceLockControllerGoogle@AE3A.240806.043/DeviceLockControllerGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/GoogleDialer/GoogleDialer.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/BuiltInPrintService/BuiltInPrintService.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/BuiltInPrintService__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/CaptivePortalLoginGoogle/CaptivePortalLoginGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/MusicFX/MusicFX.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/Drive/Drive.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/Maps/Maps.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/ModuleMetadataGoogle/ModuleMetadataGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationEmu01/DisplayCutoutEmulationEmu01Overlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/AvatarPickerGoogle/AvatarPickerGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/MarkupGoogle_v2/MarkupGoogle_v2.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/NetworkStackGoogle/NetworkStackGoogle.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.051 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.rkpd/priv-app/rkpdapp.google@350820300/rkpdapp.google.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/GoogleContacts/GoogleContacts.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/Telecom/Telecom.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/Telecom__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/KeyChain/KeyChain.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~2vOWZ25qWOgUSHaS06kdgA==/com.android.chrome-gy9DiooBFZe9RgFT-39K2A==/Chrome.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~Gugm69O5JQ-udqt98jkj9Q==/com.google.android.trichromelibrary_636771932-JAgEq9wLhkG1YfBrJNdB8Q==/TrichromeLibrary.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/GooglePackageInstaller/GooglePackageInstaller.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/PixelThemesStub/PixelThemesStub.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~px8-pdKKeU91B5kVfZv5iQ==/com.google.android.gms-3R9qBqxuv4a2Q30IolVsHQ==/base.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/GoogleServicesFramework/GoogleServicesFramework.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/TagGoogle/TagGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/GoogleTTS/GoogleTTS.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/CallLogBackup/CallLogBackup.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/PartnerSetupPrebuilt/PartnerSetupPrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/CameraExtensionsProxy/CameraExtensionsProxy.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/NexusWallpapersStubPrebuilt2018/NexusWallpapersStubPrebuilt2018.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/NexusLauncherRelease/NexusLauncherRelease.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/CarrierDefaultApp/CarrierDefaultApp.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/CredentialManager/CredentialManager.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/FontNotoSerifSource/FontNotoSerifSourceOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DeviceAsWebcam/DeviceAsWebcam.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/ProxyHandler/ProxyHandler.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.052 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.permission/priv-app/GoogleSafetyCenterResources@350820360/GoogleSafetyCenterResources.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/DisplayCutoutEmulationWaterfall/DisplayCutoutEmulationWaterfallOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/IntentResolver/IntentResolver.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/TransparentNavigationBar/TransparentNavigationBarOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/E2eeContactKeysProvider/E2eeContactKeysProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.tethering/priv-app/ServiceConnectivityResourcesGoogle@350820300/ServiceConnectivityResourcesGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/vendor/overlay/goldfish_overlay_connectivity_google.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/GoogleFeedback/GoogleFeedback.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/Photos/Photos.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.055 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/CalendarGooglePrebuilt/CalendarGooglePrebuilt.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.056 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/ManagedProvisioning/ManagedProvisioning.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/SoundPicker/SoundPicker.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DocumentsUIGoogle/DocumentsUIGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/PrebuiltGoogleTelemetryTvp/PrebuiltGoogleTelemetryTvp.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/MultiDisplayProvider/MultiDisplayProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/DeviceDiagnostics/DeviceDiagnostics.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/DeviceDiagnostics__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/NotesRoleEnabled/NotesRoleEnabledOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/LiveWallpapersPicker/LiveWallpapersPicker.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/PrebuiltGoogleAdservicesTvp/PrebuiltGoogleAdservicesTvp.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.healthfitness/priv-app/HealthConnectControllerGoogle@350820300/HealthConnectControllerGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/KidsSupervisionStub/KidsSupervisionStub.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/StorageManager/StorageManager.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/StorageManager__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/BookmarkProvider/BookmarkProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/SettingsGoogle/SettingsGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/SettingsGoogle__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/SettingsIntelligenceGooglePrebuilt/SettingsIntelligenceGooglePrebuilt.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.057 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.uwb/priv-app/ServiceUwbResourcesGoogle@350820300/ServiceUwbResourcesGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.wifi/priv-app/ServiceWifiResourcesGoogle@350820300/ServiceWifiResourcesGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/ThemePicker/ThemePicker.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.058 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/OdadPrebuilt/OdadPrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/TeleService/TeleService.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.059 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '/vendor/overlay/TeleService__sdk_gphone64_arm64__auto_generated_rro_vendor.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/TeleService__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/Shell/Shell.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/BlockedNumberProvider/BlockedNumberProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/UserDictionaryProvider/UserDictionaryProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/app/EmergencyInfoGoogleNoUi/EmergencyInfoGoogleNoUi.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/FusedLocation/FusedLocation.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/vendor/overlay/SystemUIGoogle__sdk_gphone64_arm64__auto_generated_rro_vendor.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/SystemUIGoogle__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/YouTubeMusicPrebuilt/YouTubeMusicPrebuilt.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.060 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/BluetoothMidiService/BluetoothMidiService.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /system/app/Traceur/Traceur.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /apex/com.android.cellbroadcast/priv-app/GoogleCellBroadcastApp@350820300/GoogleCellBroadcastApp.apk' with 1 weak references 
+17:29:49.096
+Android
+Warning
+ 11-05 16:29:28.061 10047 W/gistervangister: ApkAssets: Deleting an ApkAssets object '<empty> and /system/priv-app/ContactsProvider/ContactsProvider.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '/product/overlay/ContactsProvider__sdk_gphone64_arm64__auto_generated_rro_product.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/app/LatinIMEGooglePrebuilt/LatinIMEGooglePrebuilt.apk' with 1 weak references
+ApkAssets: Deleting an ApkAssets object '<empty> and /product/priv-app/GoogleRestorePrebuilt-v526684/GoogleRestorePrebuilt-v526684.apk' with 1 weak references 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.061 10047 D/XapkInstaller: Streaming split_config_12_config_ru.apk (from config.ru.apk) into session (size: 29081 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.079 10047 D/XapkInstaller: Streaming split_config_13_config_in.apk (from config.in.apk) into session (size: 24985 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.089 10047 D/XapkInstaller: Streaming split_config_14_config_ja.apk (from config.ja.apk) into session (size: 24985 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.101 10047 D/XapkInstaller: Streaming split_config_15_config_vi.apk (from config.vi.apk) into session (size: 24985 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.110 10047 D/XapkInstaller: Streaming split_config_16_config_ko.apk (from config.ko.apk) into session (size: 24985 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.128 10047 D/XapkInstaller: Streaming split_config_17_config_tr.apk (from config.tr.apk) into session (size: 24985 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.152 10047 D/XapkInstaller: Streaming split_config_18_config_it.apk (from config.it.apk) into session (size: 24985 bytes) 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.174 10047 D/XapkInstaller: Streaming split_config_19_config_de.apk (from config.de.apk) into session (size: 24985 bytes) 
+17:29:49.096
+Android
+Log
+ 11-05 16:29:28.197 10047 I/XapkInstaller: PackageInstaller session 1190616224 committed successfully for 20 splits 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.362 10047 D/InstallStatusReceiver: Package installation status received: status=-1, message=Status code: -1 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:28.366 10047 D/InstallStatusReceiver: Install requires user confirmation prompt 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:31.487 10047 D/EGL_emulation: app_time_stats: avg=151.38ms min=6.73ms max=2838.45ms count=23 
+17:29:49.096
+Android
+Debug
+ 11-05 16:29:31.962 10047 D/InstallStatusReceiver: Package installation status received: status=0, message=INSTALL_SUCCEEDED: Session installed 
+17:29:49.096
+Android
+Log
+ 11-05 16:29:31.962 10047 I/InstallStatusReceiver: Magister installation session succeeded 

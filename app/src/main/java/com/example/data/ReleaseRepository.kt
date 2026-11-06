@@ -25,11 +25,111 @@ class ReleaseRepository(private val context: Context) {
         const val DEFAULT_OWNER = "EpicMemazGuy"
         const val DEFAULT_REPO = "magister-apk-archive-releases"
         const val DEFAULT_TAG = "Release-2.7.0-to-2.9.2"
+
+        /**
+         * Exact release assets present in EpicMemazGuy/magister-apk-archive-releases/releases/tag/Release-2.7.0-to-2.9.2
+         */
+        fun getRepositoryReleaseAssets(): List<MagisterRelease> {
+            return listOf(
+                MagisterRelease(
+                    id = 20902L,
+                    tagName = DEFAULT_TAG,
+                    versionName = "2.9.2",
+                    versionCode = 20902,
+                    releaseDate = "Recent",
+                    description = "Magister 2.9.2 XAPK bundel met split-configuraties (46.7 MB).",
+                    assetName = "Magister_2.9.2.xapk",
+                    downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.9.2.xapk",
+                    sizeBytes = 48968499L, // 46.7 MB
+                    isXapk = true,
+                    isRecommendedLegacy = false,
+                    era = "v2.x",
+                    sha256 = "01ef41746ac0dfc5cea55587873c2…"
+                ),
+                MagisterRelease(
+                    id = 20705L,
+                    tagName = DEFAULT_TAG,
+                    versionName = "2.7.5",
+                    versionCode = 20705,
+                    releaseDate = "Recent",
+                    description = "Magister 2.7.5 standalone APK pakket (79.4 MB) — Aanbevolen legacy versie.",
+                    assetName = "Magister_2.7.5.apk",
+                    downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.7.5.apk",
+                    sizeBytes = 83256934L, // 79.4 MB
+                    isXapk = false,
+                    isRecommendedLegacy = true,
+                    era = "v2.x",
+                    sha256 = "d87671eb2b2b7f9adebafc3b914cdd3…"
+                ),
+                MagisterRelease(
+                    id = 20704L,
+                    tagName = DEFAULT_TAG,
+                    versionName = "2.7.4",
+                    versionCode = 20704,
+                    releaseDate = "Recent",
+                    description = "Magister 2.7.4 XAPK split bundel (90.3 MB).",
+                    assetName = "Magister_2.7.4.xapk",
+                    downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.7.4.xapk",
+                    sizeBytes = 94686412L, // 90.3 MB
+                    isXapk = true,
+                    isRecommendedLegacy = false,
+                    era = "v2.x",
+                    sha256 = "a3fa8735f23c26e2ad288c709871f…"
+                ),
+                MagisterRelease(
+                    id = 20703L,
+                    tagName = DEFAULT_TAG,
+                    versionName = "2.7.3",
+                    versionCode = 20703,
+                    releaseDate = "Recent",
+                    description = "Magister 2.7.3 XAPK split bundel (90.3 MB).",
+                    assetName = "Magister_2.7.3.xapk",
+                    downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.7.3.xapk",
+                    sizeBytes = 94686412L, // 90.3 MB
+                    isXapk = true,
+                    isRecommendedLegacy = false,
+                    era = "v2.x",
+                    sha256 = "4767e88c3608c7254f04b3cd29a4e…"
+                ),
+                MagisterRelease(
+                    id = 20701L,
+                    tagName = DEFAULT_TAG,
+                    versionName = "2.7.1",
+                    versionCode = 20701,
+                    releaseDate = "Recent",
+                    description = "Magister 2.7.1 XAPK split bundel (145 MB).",
+                    assetName = "Magister_2.7.1.xapk",
+                    downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.7.1.xapk",
+                    sizeBytes = 152043520L, // 145 MB
+                    isXapk = true,
+                    isRecommendedLegacy = false,
+                    era = "v2.x",
+                    sha256 = "93c52a75203fd14f5af233b5a3b51…"
+                ),
+                MagisterRelease(
+                    id = 20700L,
+                    tagName = DEFAULT_TAG,
+                    versionName = "2.7.0",
+                    versionCode = 20700,
+                    releaseDate = "Recent",
+                    description = "Magister 2.7.0 standalone APK pakket (96.1 MB).",
+                    assetName = "Magister_2.7.0.apk",
+                    downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.7.0.apk",
+                    sizeBytes = 100768153L, // 96.1 MB
+                    isXapk = false,
+                    isRecommendedLegacy = false,
+                    era = "v2.x",
+                    sha256 = "0854afc80c080aecab3f24ab8…"
+                )
+            )
+        }
     }
 
     private val okHttpClient = OkHttpClient.Builder()
         .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(120, TimeUnit.SECONDS)
+        .followRedirects(true)
+        .followSslRedirects(true)
         .addInterceptor(HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BASIC
         })
@@ -88,7 +188,7 @@ class ReleaseRepository(private val context: Context) {
             val isApk = assetName.endsWith(".apk", ignoreCase = true)
 
             if (isApk || isXapk) {
-                val versionMatch = Regex("""\b(\d+\.\d+\.\d+)\b""").find(assetName)
+                val versionMatch = Regex("""(\d+\.\d+\.\d+)""").find(assetName)
                 val versionName = versionMatch?.value ?: extractVersionFromTag(tag)
                 val versionCode = deriveVersionCode(versionName)
 
@@ -104,7 +204,7 @@ class ReleaseRepository(private val context: Context) {
                         downloadUrl = asset.downloadUrl ?: "https://github.com/$owner/$repo/releases/download/$tag/$assetName",
                         sizeBytes = asset.size ?: 50000000L,
                         isXapk = isXapk,
-                        isRecommendedLegacy = versionName == "2.9.2" || versionName == "2.7.5",
+                        isRecommendedLegacy = versionName == "2.7.5",
                         isVerified = true,
                         era = "v2.x",
                         sha256 = ""
@@ -117,7 +217,7 @@ class ReleaseRepository(private val context: Context) {
     }
 
     private fun extractVersionFromTag(tag: String): String {
-        val match = Regex("""(\d+\.\d+(\.\d+)?)""").find(tag)
+        val match = Regex("""(\d+\.\d+\.\d+)""").find(tag)
         return match?.value ?: "2.9.2"
     }
 
@@ -130,103 +230,8 @@ class ReleaseRepository(private val context: Context) {
         }
     }
 
-    /**
-     * Exact release assets present in EpicMemazGuy/magister-apk-archive-releases/releases/tag/Release-2.7.0-to-2.9.2
-     */
-    fun getRepositoryReleaseAssets(): List<MagisterRelease> {
-        return listOf(
-            MagisterRelease(
-                id = 20902L,
-                tagName = DEFAULT_TAG,
-                versionName = "2.9.2",
-                versionCode = 20902,
-                releaseDate = "Recent",
-                description = "Magister 2.9.2 XAPK bundel met split-configuraties (46.7 MB).",
-                assetName = "Magister_2.9.2.xapk",
-                downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.9.2.xapk",
-                sizeBytes = 48968499L, // 46.7 MB
-                isXapk = true,
-                isRecommendedLegacy = true,
-                era = "v2.x",
-                sha256 = "01ef41746ac0dfc5cea55587873c2…"
-            ),
-            MagisterRelease(
-                id = 20705L,
-                tagName = DEFAULT_TAG,
-                versionName = "2.7.5",
-                versionCode = 20705,
-                releaseDate = "Recent",
-                description = "Magister 2.7.5 standalone APK pakket (79.4 MB).",
-                assetName = "Magister_2.7.5.apk",
-                downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.7.5.apk",
-                sizeBytes = 83256934L, // 79.4 MB
-                isXapk = false,
-                isRecommendedLegacy = true,
-                era = "v2.x",
-                sha256 = "d87671eb2b2b7f9adebafc3b914cdd3…"
-            ),
-            MagisterRelease(
-                id = 20704L,
-                tagName = DEFAULT_TAG,
-                versionName = "2.7.4",
-                versionCode = 20704,
-                releaseDate = "Recent",
-                description = "Magister 2.7.4 XAPK split bundel (90.3 MB).",
-                assetName = "Magister_2.7.4.xapk",
-                downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.7.4.xapk",
-                sizeBytes = 94686412L, // 90.3 MB
-                isXapk = true,
-                isRecommendedLegacy = false,
-                era = "v2.x",
-                sha256 = "a3fa8735f23c26e2ad288c709871f…"
-            ),
-            MagisterRelease(
-                id = 20703L,
-                tagName = DEFAULT_TAG,
-                versionName = "2.7.3",
-                versionCode = 20703,
-                releaseDate = "Recent",
-                description = "Magister 2.7.3 XAPK split bundel (90.3 MB).",
-                assetName = "Magister_2.7.3.xapk",
-                downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.7.3.xapk",
-                sizeBytes = 94686412L, // 90.3 MB
-                isXapk = true,
-                isRecommendedLegacy = false,
-                era = "v2.x",
-                sha256 = "4767e88c3608c7254f04b3cd29a4e…"
-            ),
-            MagisterRelease(
-                id = 20701L,
-                tagName = DEFAULT_TAG,
-                versionName = "2.7.1",
-                versionCode = 20701,
-                releaseDate = "Recent",
-                description = "Magister 2.7.1 XAPK split bundel (145 MB).",
-                assetName = "Magister_2.7.1.xapk",
-                downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.7.1.xapk",
-                sizeBytes = 152043520L, // 145 MB
-                isXapk = true,
-                isRecommendedLegacy = false,
-                era = "v2.x",
-                sha256 = "93c52a75203fd14f5af233b5a3b51…"
-            ),
-            MagisterRelease(
-                id = 20700L,
-                tagName = DEFAULT_TAG,
-                versionName = "2.7.0",
-                versionCode = 20700,
-                releaseDate = "Recent",
-                description = "Magister 2.7.0 standalone APK pakket (96.1 MB).",
-                assetName = "Magister_2.7.0.apk",
-                downloadUrl = "https://github.com/$DEFAULT_OWNER/$DEFAULT_REPO/releases/download/$DEFAULT_TAG/Magister_2.7.0.apk",
-                sizeBytes = 100768153L, // 96.1 MB
-                isXapk = false,
-                isRecommendedLegacy = false,
-                era = "v2.x",
-                sha256 = "0854afc80c080aecab3f24ab8…"
-            )
-        )
-    }
+    fun getRepositoryReleaseAssets(): List<MagisterRelease> = Companion.getRepositoryReleaseAssets()
+
 
     /**
      * Downloads an asset file with live progress reporting.
@@ -238,7 +243,12 @@ class ReleaseRepository(private val context: Context) {
         val extension = if (release.isXapk) ".xapk" else ".apk"
         val outputFile = File(context.cacheDir, "${release.assetName.substringBeforeLast(".")}$extension")
 
-        if (outputFile.exists() && outputFile.length() > 0 && (release.sizeBytes <= 0 || outputFile.length() == release.sizeBytes)) {
+        // Delete stale/invalid stub files from earlier runs (< 1MB)
+        if (outputFile.exists() && outputFile.length() < 1024 * 1024) {
+            outputFile.delete()
+        }
+
+        if (outputFile.exists() && outputFile.length() >= 1024 * 1024 && (release.sizeBytes <= 0 || outputFile.length() == release.sizeBytes)) {
             onProgress(outputFile.length(), outputFile.length())
             return@withContext outputFile
         }
@@ -252,13 +262,7 @@ class ReleaseRepository(private val context: Context) {
 
         val response = okHttpClient.newCall(request).execute()
         if (!response.isSuccessful || response.body == null) {
-            if (response.code == 404 || response.code == 403 || !response.isSuccessful) {
-                Log.w(TAG, "Remote asset download returned ${response.code}, creating local verified package container")
-                generateLocalFallbackPackage(outputFile, release)
-                onProgress(outputFile.length(), outputFile.length())
-                return@withContext outputFile
-            }
-            throw IllegalStateException("Download mislukt met HTTP code ${response.code}")
+            throw IllegalStateException("Download mislukt met HTTP code ${response.code}: ${response.message}")
         }
 
         val body = response.body!!
@@ -287,6 +291,65 @@ class ReleaseRepository(private val context: Context) {
 
         onProgress(downloadedBytes, downloadedBytes)
         Log.i(TAG, "Download completed: ${outputFile.absolutePath} (${outputFile.length()} bytes)")
+        outputFile
+    }
+
+    /**
+     * Downloads an asset file directly to the system's public Downloads directory.
+     */
+    suspend fun downloadToPublicDownloads(
+        release: MagisterRelease,
+        onProgress: (downloadedBytes: Long, totalBytes: Long) -> Unit
+    ): File = withContext(Dispatchers.IO) {
+        val extension = if (release.isXapk) ".xapk" else ".apk"
+        val fileName = "${release.assetName.substringBeforeLast(".")}$extension"
+        val downloadsDir = android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS)
+        if (!downloadsDir.exists()) downloadsDir.mkdirs()
+        val outputFile = File(downloadsDir, fileName)
+
+        if (outputFile.exists() && outputFile.length() >= 1024 * 1024 && (release.sizeBytes <= 0 || outputFile.length() == release.sizeBytes)) {
+            onProgress(outputFile.length(), outputFile.length())
+            return@withContext outputFile
+        }
+
+        Log.d(TAG, "Downloading asset to public Downloads folder: ${release.downloadUrl} -> ${outputFile.absolutePath}")
+
+        val request = okhttp3.Request.Builder()
+            .url(release.downloadUrl)
+            .addHeader("Accept", "application/octet-stream")
+            .build()
+
+        val response = okHttpClient.newCall(request).execute()
+        if (!response.isSuccessful || response.body == null) {
+            throw IllegalStateException("Download mislukt met HTTP code ${response.code}: ${response.message}")
+        }
+
+        val body = response.body!!
+        val totalBytes = if (body.contentLength() > 0) body.contentLength() else release.sizeBytes
+        var downloadedBytes = 0L
+
+        body.byteStream().use { input ->
+            FileOutputStream(outputFile).use { output ->
+                val buffer = ByteArray(16384)
+                var bytesRead: Int
+                var lastProgressUpdate = System.currentTimeMillis()
+
+                while (input.read(buffer).also { bytesRead = it } != -1) {
+                    output.write(buffer, 0, bytesRead)
+                    downloadedBytes += bytesRead
+
+                    val now = System.currentTimeMillis()
+                    if (now - lastProgressUpdate > 100) {
+                        onProgress(downloadedBytes, totalBytes)
+                        lastProgressUpdate = now
+                    }
+                }
+                output.flush()
+            }
+        }
+
+        onProgress(downloadedBytes, downloadedBytes)
+        Log.i(TAG, "Public Download completed: ${outputFile.absolutePath} (${outputFile.length()} bytes)")
         outputFile
     }
 

@@ -1,0 +1,34 @@
+Categories:
+  - System
+  - Utilities
+License: GPL-3.0-only
+SourceCode: https://github.com/EpicMemazGuy/magister-van-gister
+IssueTracker: https://github.com/EpicMemazGuy/magister-van-gister/issues
+Summary: Legacy Magister version manager & APK/XAPK installer for Dutch students
+Description: |-
+  Magister Van Gister enables students to archive, manage, downgrade, and install legacy versions
+  of the Dutch school application Magister directly from GitHub releases.
+
+  Features:
+  * Dynamic Material You (Material 3) styling with wallpaper color extraction.
+  * Direct fetching & downloading from GitHub release archives.
+  * Native PackageInstaller Session streaming for standalone APKs and multi-split XAPKs.
+  * Real-time terminal log viewer for extraction, download progress, and session status.
+  * Automated downgrade conflict prompt with package uninstallation.
+  * Fully open source (GPL-3.0) with zero proprietary trackers or Google Play dependencies.
+
+RepoType: git
+Repo: https://github.com/EpicMemazGuy/magister-van-gister.git
+
+Builds:
+  - versionName: '1.0.0'
+    versionCode: 100
+    commit: v1.0.0
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '1.0.0'
+CurrentVersionCode: 100

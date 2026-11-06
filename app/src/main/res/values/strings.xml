@@ -2,11 +2,13 @@
     <string name="app_name">Magister Van Gister</string>
     <string name="app_subtitle">Downgrader &amp; Versiebeheer</string>
     <string name="tab_versions">Versies</string>
+    <string name="tab_manual">Handmatig</string>
     <string name="tab_installed">Status</string>
+    <string name="tab_console">Console</string>
     <string name="tab_settings">Instellingen</string>
     
-    <string name="title_available_versions">Gearchiveerde Versies</string>
-    <string name="subtitle_available_versions">Download en herstel eerdere Magister versies</string>
+    <string name="title_available_versions">Gearchiveerde Versies (2.7.5 &amp; 2.7.0)</string>
+    <string name="subtitle_available_versions">Selecteer een van de twee ondersteunde legacy versies</string>
     <string name="btn_download_install">Download &amp; Installeer</string>
     <string name="btn_retry">Opnieuw Proberen</string>
     <string name="btn_cancel">Annuleren</string>
@@ -32,4 +34,27 @@
     
     <string name="license_title">Open Source Licentie</string>
     <string name="license_type">GNU General Public License v3.0 (GPL-3.0)</string>
+    
+    <string name="downgrade_dialog_title">Downgrade Vereist Deïnstallatie</string>
+    <string name="downgrade_dialog_desc">Magister is momenteel geïnstalleerd op dit apparaat (%1$s). Android blokkeert het rechtstreeks overschrijven van nieuwere versies door oudere versies.\n\nWilt u de huidige Magister app eerst automatisch laten deïnstalleren? Magister Van Gister installeert daarna direct versie %2$s voor u.</string>
+    <string name="downgrade_dialog_conflict_desc">Android heeft de installatie geblokkeerd wegens een versieconflict (downgrade blokkade).\n\nOm versie %1$s te kunnen installeren moet de huidige Magister versie eerst worden verwijderd. Wilt u deze nu laten verwijderen en direct doorgaan met installeren?</string>
+    <string name="downgrade_dialog_btn_uninstall_install">Deïnstalleren &amp; Installeer</string>
+
+    <!-- Warnings and Manual Tab Localization -->
+    <string name="warning_login_title">⚠️ BELANGRIJKE WAARSCHUWING</string>
+    <string name="warning_login_desc">Het deïnstalleren van Magister vereist dat je daarna handmatig opnieuw inlogt met je school-account. Als je je wachtwoord bent vergeten, doe dit dan NIET!</string>
+    <string name="version_270_warning">⚠️ Niet aanbevolen: Deze versie is grotendeels kapot en de meeste lessen verschijnen 1 uur eerder in de app.</string>
+    <string name="version_275_recommended">⭐ Aanbevolen legacy versie: Meest stabiele en betrouwbare 2.7.x release van Magister.</string>
+    
+    <string name="manual_title">Handmatige XAPK Downloads</string>
+    <string name="manual_subtitle">Download .xapk bestanden rechtstreeks naar je Downloads-map en installeer ze met XAPK Installer.</string>
+    <string name="xapk_installer_card_title">XAPK Installer uit Play Store</string>
+    <string name="xapk_installer_card_desc">We raden aan om de officiële XAPK Installer app te downloaden uit de Google Play Store om losse .xapk bestanden gemakkelijk te kunnen installeren.</string>
+    <string name="btn_open_play_store">Open Google Play Store</string>
+    <string name="tutorial_title">Stappenplan Handmatig Installeren:</string>
+    <string name="tutorial_step_1">1. Tik hieronder bij een XAPK versie op \'Download naar Downloads-map\'.</string>
+    <string name="tutorial_step_2">2. Open de XAPK Installer app (downloadbaar via de knop hierboven).</string>
+    <string name="tutorial_step_3">3. Zoek het gedownloade .xapk bestand in je Downloads-map en tik op \'Installeren\'.</string>
+    <string name="btn_download_to_downloads">Download naar Downloads-map</string>
+    <string name="toast_download_complete">XAPK succesvol opslagen in Downloads-map: %1$s</string>
 </resources>

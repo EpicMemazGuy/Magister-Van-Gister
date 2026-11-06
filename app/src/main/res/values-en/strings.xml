@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Magister Van Gister</string>
+    <string name="app_subtitle">Downgrader &amp; Version Manager</string>
+    <string name="tab_versions">Versions</string>
+    <string name="tab_manual">Manual</string>
+    <string name="tab_installed">Status</string>
+    <string name="tab_console">Console</string>
+    <string name="tab_settings">Settings</string>
+    
+    <string name="title_available_versions">Archived Versions (2.7.5 &amp; 2.7.0)</string>
+    <string name="subtitle_available_versions">Select one of the two supported legacy versions</string>
+    <string name="btn_download_install">Download &amp; Install</string>
+    <string name="btn_retry">Retry</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_refresh">Refresh</string>
+    
+    <string name="status_installed">Installed on this device</string>
+    <string name="status_not_installed">Magister not found on this device</string>
+    <string name="current_version">Current version: %1$s (Build %2$d)</string>
+    
+    <string name="state_downloading">Downloading package…</string>
+    <string name="state_extracting">Extracting XAPK splits…</string>
+    <string name="state_installing">Initializing installation…</string>
+    <string name="state_completed">Installation request sent to Android</string>
+    <string name="state_error">Error: %1$s</string>
+    
+    <string name="permission_install_title">Installation Permission Required</string>
+    <string name="permission_install_desc">Magister Van Gister needs permission to install unknown apps to deploy archived Magister builds.</string>
+    <string name="permission_install_btn">Open Permission Settings</string>
+
+    <string name="repo_settings_title">GitHub Repository</string>
+    <string name="repo_settings_desc">Configure source repository for Magister releases</string>
+    <string name="repo_default_btn">Restore Default</string>
+    
+    <string name="license_title">Open Source License</string>
+    <string name="license_type">GNU General Public License v3.0 (GPL-3.0)</string>
+    
+    <string name="downgrade_dialog_title">Downgrade Requires Uninstall</string>
+    <string name="downgrade_dialog_desc">Magister is currently installed on this device (%1$s). Android blocks directly overwriting newer versions with older versions.\n\nDo you want to automatically uninstall the current Magister app first? Magister Van Gister will then install version %2$s for you.</string>
+    <string name="downgrade_dialog_conflict_desc">Android blocked the installation due to a version conflict (downgrade restriction).\n\nTo install version %1$s, the current Magister build must be uninstalled first. Would you like to uninstall it now and proceed with installation?</string>
+    <string name="downgrade_dialog_btn_uninstall_install">Uninstall &amp; Install</string>
+
+    <!-- Warnings and Manual Tab Localization -->
+    <string name="warning_login_title">⚠️ IMPORTANT WARNING</string>
+    <string name="warning_login_desc">Uninstalling Magister requires you to log back in manually with your school account. If you forgot your password, DO NOT do this!</string>
+    <string name="version_270_warning">⚠️ Not recommended: This version is mostly broken and most lessons appear 1 hour earlier in the app.</string>
+    <string name="version_275_recommended">⭐ Recommended legacy version: Most stable and reliable 2.7.x Magister release.</string>
+    
+    <string name="manual_title">Manual XAPK Downloads</string>
+    <string name="manual_subtitle">Download .xapk files directly to your Downloads folder and install them with XAPK Installer.</string>
+    <string name="xapk_installer_card_title">XAPK Installer from Play Store</string>
+    <string name="xapk_installer_card_desc">We recommend downloading the official XAPK Installer app from the Google Play Store to easily install standalone .xapk files.</string>
+    <string name="btn_open_play_store">Open Google Play Store</string>
+    <string name="tutorial_title">Step-by-Step Manual Installation:</string>
+    <string name="tutorial_step_1">1. Tap \'Download to Downloads folder\' below for your chosen XAPK version.</string>
+    <string name="tutorial_step_2">2. Open the XAPK Installer app on your phone (download via button above).</string>
+    <string name="tutorial_step_3">3. Locate the downloaded .xapk file in your Downloads folder and tap \'Install\'.</string>
+    <string name="btn_download_to_downloads">Download to Downloads folder</string>
+    <string name="toast_download_complete">XAPK successfully saved to Downloads folder: %1$s</string>
+</resources>

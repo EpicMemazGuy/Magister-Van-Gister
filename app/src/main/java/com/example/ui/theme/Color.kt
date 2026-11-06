@@ -41,3 +41,29 @@ val M3OnErrorContainer = Color(0xFFFFDAD6)
 val StatusSuccess = Color(0xFFA6D394)
 val StatusWarning = Color(0xFFFFB77C)
 val StatusError = Color(0xFFFFB4AB)
+
+// Material 3 Gradient Brushes (Warm Amber & Obsidian - Zero Blue)
+val M3PrimaryGradient = androidx.compose.ui.graphics.Brush.horizontalGradient(
+    colors = listOf(Color(0xFFFFB77C), Color(0xFFFF8B3D))
+)
+
+val M3RecommendedCardGradient = androidx.compose.ui.graphics.Brush.verticalGradient(
+    colors = listOf(Color(0xFF342315), Color(0xFF201A15))
+)
+
+val M3CardGradient = androidx.compose.ui.graphics.Brush.verticalGradient(
+    colors = listOf(Color(0xFF261E18), Color(0xFF1B1612))
+)
+
+val M3HeaderGradient = androidx.compose.ui.graphics.Brush.verticalGradient(
+    colors = listOf(Color(0xFF261D15), Color(0xFF14120E))
+)
+
+val M3InstalledBannerGradient = androidx.compose.ui.graphics.Brush.horizontalGradient(
+    colors = listOf(Color(0xFF253320), Color(0xFF1A2216))
+)
+
+val M3NotInstalledBannerGradient = androidx.compose.ui.graphics.Brush.horizontalGradient(
+    colors = listOf(Color(0xFF342216), Color(0xFF201A15))
+)
+

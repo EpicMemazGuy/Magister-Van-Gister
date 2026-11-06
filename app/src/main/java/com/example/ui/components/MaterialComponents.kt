@@ -16,8 +16,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
@@ -37,8 +38,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import com.example.R
+import com.example.ui.theme.M3CardGradient
+import com.example.ui.theme.M3HeaderGradient
+import com.example.ui.theme.M3OnPrimary
 import com.example.ui.theme.M3Primary
+import com.example.ui.theme.M3PrimaryGradient
+import com.example.ui.theme.M3RecommendedCardGradient
 import com.example.ui.theme.M3SurfaceContainer
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -107,16 +119,33 @@ fun M3TopHeader(
 @Composable
 fun M3Card(
     modifier: Modifier = Modifier,
+    isRecommended: Boolean = false,
+    gradient: Brush? = null,
+    border: BorderStroke? = null,
     content: @Composable () -> Unit
 ) {
-    ElevatedCard(
+    val effectiveGradient = gradient ?: if (isRecommended) M3RecommendedCardGradient else M3CardGradient
+    val effectiveBorder = border ?: if (isRecommended) {
+        BorderStroke(1.dp, MaterialTheme.colorScheme.primary)
+    } else {
+        BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
+    }
+
+    Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = androidx.compose.material3.CardDefaults.elevatedCardColors(
-            containerColor = M3SurfaceContainer
+        border = effectiveBorder,
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isRecommended) MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.25f)
+                             else MaterialTheme.colorScheme.surfaceContainerHighest
         )
     ) {
-        Box(modifier = Modifier.padding(16.dp)) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
             content()
         }
     }
@@ -142,7 +171,9 @@ fun M3PrimaryButton(
         shape = RoundedCornerShape(12.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.primary,
-            contentColor = MaterialTheme.colorScheme.onPrimary
+            contentColor = MaterialTheme.colorScheme.onPrimary,
+            disabledContainerColor = MaterialTheme.colorScheme.surfaceVariant,
+            disabledContentColor = MaterialTheme.colorScheme.onSurfaceVariant
         )
     ) {
         if (isLoading) {
@@ -152,7 +183,10 @@ fun M3PrimaryButton(
                 strokeWidth = 2.dp
             )
         } else {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
                 if (leadingIcon != null) {
                     leadingIcon()
                     Spacer(modifier = Modifier.width(8.dp))
@@ -160,7 +194,8 @@ fun M3PrimaryButton(
                 Text(
                     text = text,
                     style = MaterialTheme.typography.bodyMedium.copy(
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = if (enabled) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 )
             }
@@ -242,13 +277,14 @@ fun M3ProgressSection(
 @Composable
 fun M3Badge(
     text: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    isRecommended: Boolean = false
 ) {
     Surface(
         modifier = modifier,
         shape = RoundedCornerShape(8.dp),
-        color = MaterialTheme.colorScheme.primaryContainer,
-        contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+        color = if (isRecommended) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.primaryContainer,
+        contentColor = if (isRecommended) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onPrimaryContainer
     ) {
         Text(
             text = text,

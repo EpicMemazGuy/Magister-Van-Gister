@@ -22,6 +22,7 @@ class InstallStatusReceiver : BroadcastReceiver() {
     sealed interface InstallResult {
         object Success : InstallResult
         data class Error(val status: Int, val message: String) : InstallResult
+        data class DowngradeConflict(val packageName: String?, val message: String) : InstallResult
         object UserActionRequired : InstallResult
     }
 
@@ -54,9 +55,10 @@ class InstallStatusReceiver : BroadcastReceiver() {
             }
 
             PackageInstaller.STATUS_FAILURE_CONFLICT -> {
-                val errorMsg = "Downgrade conflict (STATUS_FAILURE_CONFLICT): Verwijder eerst de nieuwere versie van Magister om te kunnen downgraden."
+                val conflictPackage = intent.getStringExtra(PackageInstaller.EXTRA_PACKAGE_NAME)
+                val errorMsg = "Downgrade conflict (STATUS_FAILURE_CONFLICT): Android weigert installatie over een nieuwere of conflicterende versie."
                 Log.e(TAG, errorMsg)
-                _installEvents.tryEmit(InstallResult.Error(status, errorMsg))
+                _installEvents.tryEmit(InstallResult.DowngradeConflict(conflictPackage, errorMsg))
             }
 
             PackageInstaller.STATUS_FAILURE_STORAGE -> {
